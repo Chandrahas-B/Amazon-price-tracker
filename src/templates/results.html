@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/results.css') }}">
     <title>{{ name }}</title>
 </head>
 <body>
-    {{ url }}
-    {{request}}
+    <table>
+    <tr>
+        <th> Product Name </th>
+        <th> Price </th>
+    </tr>
+        {% for products in product_list %}
+        <tr> 
+            <td> <a href="{{ urls[products] }}" target='_blank'> {{ products }} </td> </a>
+            <td> {{ product_list[products] }}
+        {% endfor %}
+    </table>
 </body>
 </html>
