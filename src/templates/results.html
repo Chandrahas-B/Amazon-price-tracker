@@ -12,10 +12,10 @@
         <th> Product Name </th>
         <th> Price </th>
     </tr>
-        {% for products in product_list %}
+        {% for product in product_list %}
         <tr> 
-            <td> <a href="{{ urls[products] }}" target='_blank'> {{ products }} </td> </a>
-            <td> {{ product_list[products] }}
+            <td> <a href="{{ url_for('details', id = ids[product], name = name) }}" target='_blank'> {{ product }} </td> </a>
+            <td> {{ product_list[product] }}
         {% endfor %}
     </table>
 </body>
