@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ name }} Details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/details.css') }}">
+    <script src="{{ url_for('static', filename='js/details.js') }}"></script>
+</head>
+<body>
+    <div id = "product-image">
+        <img src="{{ image_url }}" >
+    </div>
+
+    <a href="{{ url }}"><h2>{{ product_name }}</h2></a>
+    <br/>
+    <h2> Price history:</h2>
+    Initial Price: ₹ {{ prices[0] | format_currency }} <br/>
+    Present price: ₹ {{ prices[-1] | format_currency }}   <br/><br/><br/>
+    <div style="height: 50vh; width: 50%;">
+        <canvas id="myChart"></canvas>
+    </div>
+    
+    <script>
+        var prices = {{ prices | tojson }};
+        var scraped_times = {{ scraped_times | tojson }};
+        plot_graph(scraped_times, prices);
+    </script>
+</body>
+</html>
