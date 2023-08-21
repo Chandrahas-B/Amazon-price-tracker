@@ -1,18 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-def get_page(url: str):
-    HEADERS = {
-        'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
-                        'AppleWebKit/537.36 (KHTML, like Gecko)'
-                        'Chrome/44.0.2403.157 Safari/537.36'),
-        'Accept-Language': 'en-US, en;q=0.5'
-        }
-
-    html_page = requests.get(url, headers= HEADERS)
-    content = BeautifulSoup(html_page.content, 'html5lib')
-    product_list = get_results(content)
-    return product_list
 
 
 def get_results(content):
@@ -36,11 +24,28 @@ def get_results(content):
     return product_list, urls
 
 
-# async def get_product(product_div):
-#     # Query for all elements at once
-#     image_element_future = product_div.query_selector('img.s-image')
-#     name_element_future = product_div.query_selector(
-#         'h2 a span')
-#     price_element_future = product_div.query_selector('span.a-offscreen')
-#     url_element_future = product_div.query_selector(
-#         'a.a-link-normal.s-no-hover.s-underline-text.s-underline-link-text.s-link-style.a-text-normal')
+def get_page(url: str):
+    HEADERS = {
+        'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
+                        'AppleWebKit/537.36 (KHTML, like Gecko)'
+                        'Chrome/44.0.2403.157 Safari/537.36'),
+        'Accept-Language': 'en-US, en;q=0.5'
+        }
+
+    html_page = requests.get(url, headers= HEADERS)
+    content = BeautifulSoup(html_page.content, 'html5lib')
+    product_list = get_results(content)
+    return product_list
+
+
+def get_image_url(url: str):
+    HEADERS = {
+        'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
+                        'AppleWebKit/537.36 (KHTML, like Gecko)'
+                        'Chrome/44.0.2403.157 Safari/537.36'),
+        'Accept-Language': 'en-US, en;q=0.5'
+        }
+    html_page = requests.get(url, headers= HEADERS)
+    content = BeautifulSoup(html_page.content, 'html5lib')
+    image = content.find('img', { 'data-a-image-name' :"landingImage"})
+    return image['src']
