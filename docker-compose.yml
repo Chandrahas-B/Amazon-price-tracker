@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    networks:
+      - dblistener
+
+  scraper:
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    environment:
+      DBNAME : postgres
+      DB_HOSTNAME : db
+      DB_USERNAME : postgres
+      DB_PASSWORD : password
+      DB_PORT : 5432
+    networks:
+      - dblistener
+
+networks:
+  dblistener:
