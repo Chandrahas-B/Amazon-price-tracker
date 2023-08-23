@@ -7,7 +7,7 @@ load_dotenv()
 
 
 def connection():
-    # try:
+    try:
         DBNAME = os.getenv('DBNAME')
         HOSTNAME = os.getenv('DB_HOSTNAME')
         USERNAME = os.getenv('DB_USERNAME')
@@ -21,9 +21,9 @@ def connection():
         conn = psycopg2.connect(host = HOSTNAME, dbname= DBNAME, user = USERNAME, password = PASSWORD, port = PORT)
         print("Connection successful")
         return conn
-    # except:
-    #     print("Postgres not connected")
-    #     exit()
+    except:
+        print("Postgres not connected")
+        exit()
 
 
 def create_table(conn): 
