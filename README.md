@@ -7,8 +7,8 @@
   <br/><br/>
   The data is collected and inserted to the database whenever the search is performed.
 </p>
-<img src="https://github.com/Chandrahas-B/Amazon-price-scraper/assets/84665480/e45ca4e0-1a85-4902-a4f3-7c7b7cf6efbb" width= 800px height= 300px  style='float:right;' />
-<img src="https://github.com/Chandrahas-B/Amazon-price-scraper/assets/84665480/b03f8376-af15-4a93-b3fb-d8496a8bbb40" width= 800px height= 300px  style='float:left;' />
+<img src="https://github.com/Chandrahas-B/Amazon-price-tracker/assets/84665480/bbbef318-894d-451b-bb79-dc721622acc5" width= 800px height= 300px  style='float:right;' />
+<img src="https://github.com/Chandrahas-B/Amazon-price-tracker/assets/84665480/b95a481d-59aa-426c-8de1-42cfaf054459" width= 800px height= 300px  style='float:left;'/>
 
 
 # <h2> To run the application: </h2>
