@@ -13,14 +13,20 @@ def connection():
         USERNAME = os.getenv('DB_USERNAME')
         PASSWORD = os.getenv('DB_PASSWORD')
         PORT = os.getenv('DB_PORT')
+        print(f"DBNAME: {DBNAME}")
+        print(f"HOSTNAME: {HOSTNAME}")
+        print(f"USERNAME: {USERNAME}")
+        print(f"PASSWORD: {PASSWORD}")
+        print(f"PORT: {PORT}")
         conn = psycopg2.connect(host = HOSTNAME, dbname= DBNAME, user = USERNAME, password = PASSWORD, port = PORT)
         print("Connection successful")
         return conn
     # except:
-    #     return False
+    #     print("Postgres not connected")
+    #     exit()
 
 
-def create_table(conn):
+def create_table(conn): 
     create_product_list = ''' CREATE TABLE IF NOT EXISTS products (
                                     id serial PRIMARY KEY,
                                     product_name VARCHAR (200) NOT NULL,
@@ -62,9 +68,10 @@ def get_product_prices(product_name: str):
     return product_prices
 
 conn = connection()
-cur = conn.cursor()
 create_table(conn)
 if not conn:
     print("Postgres not connected")
     exit()
+    
+print("Postgres connected")
 cur = conn.cursor()

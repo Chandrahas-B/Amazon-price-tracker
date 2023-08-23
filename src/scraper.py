@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import asyncio
 
 
 
@@ -25,12 +26,7 @@ def get_results(content):
 
 
 def get_page(url: str):
-    HEADERS = {
-        'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
-                        'AppleWebKit/537.36 (KHTML, like Gecko)'
-                        'Chrome/44.0.2403.157 Safari/537.36'),
-        'Accept-Language': 'en-US, en;q=0.5'
-        }
+    HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
 
     html_page = requests.get(url, headers= HEADERS)
     content = BeautifulSoup(html_page.content, 'html5lib')
@@ -39,12 +35,13 @@ def get_page(url: str):
 
 
 def get_image_url(url: str):
-    HEADERS = {
-        'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
-                        'AppleWebKit/537.36 (KHTML, like Gecko)'
-                        'Chrome/44.0.2403.157 Safari/537.36'),
-        'Accept-Language': 'en-US, en;q=0.5'
-        }
+    # HEADERS = {
+    #     'User-Agent': ('Mozilla/5.0 (X11; Linux x86_64)'
+    #                     'AppleWebKit/537.36 (KHTML, like Gecko)'
+    #                     'Chrome/44.0.2403.157 Safari/537.36'),
+    #     'Accept-Language': 'en-US, en;q=0.5'
+    #     }
+    HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
     html_page = requests.get(url, headers= HEADERS)
     content = BeautifulSoup(html_page.content, 'html5lib')
     image = content.find('img', { 'data-a-image-name' :"landingImage"})

@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.2
+Flask==2.3.2
+psycopg2_binary==2.9.7
+python-dotenv==1.0.0
+Requests==2.31.0
+html5lib==1.1

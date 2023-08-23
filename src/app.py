@@ -38,7 +38,7 @@ def details(name: str):
     url = session['urls'][product_name]
     prices_and_scraped_times = get_product_prices(product_name)
     prices, scraped_times = get_price_and_time(prices_and_scraped_times)
-    # image_url = get_image_url(url)
-    image_url = None
+    # image_url = asyncio.run(get_image_url(url))
+    image_url = get_image_url(url)
     return render_template('details.html', id = id, product_name = product_name, 
                         name = name, url = url, prices = prices, scraped_times = scraped_times, image_url = image_url)
