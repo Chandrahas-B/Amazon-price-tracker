@@ -11,7 +11,7 @@
 <img src="https://github.com/Chandrahas-B/Amazon-price-scraper/assets/84665480/b03f8376-af15-4a93-b3fb-d8496a8bbb40" width= 800px height= 300px  style='float:left;' />
 
 
-# <h4> To run the application: </h4>
+# <h2> To run the application: </h2>
 
 Using Docker compose:
 ```
