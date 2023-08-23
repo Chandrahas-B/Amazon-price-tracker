@@ -13,12 +13,12 @@
 
 # <h2> To run the application: </h2>
 
-Using Docker compose:
+-- Using Docker compose:
 ```
 docker compose up
 ```
 
-Using pip:
+-- Using pip:
 ```
 pip install -r requirements.txt
 ```
